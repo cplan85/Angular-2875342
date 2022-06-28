@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'highlightText'
+  name: 'highlightText',
 })
 export class HighlightTextPipe implements PipeTransform {
-
   transform(value: string, filter: string): string {
     if (filter.length === 0) {
       return value;
@@ -12,7 +11,8 @@ export class HighlightTextPipe implements PipeTransform {
 
     const search = new RegExp(filter, 'ig');
 
-    return value.replace(search, 'x');
+    return value.replace(search, (match) => {
+      return `<span class="high-light">${match}</span>`;
+    });
   }
-
-} 
+}
