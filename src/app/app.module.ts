@@ -8,6 +8,7 @@ import { ErrorMetadataService } from './services/error-metadata.service';
 import { HighlightTextPipe } from './pipes/highlight-text.pipe';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserListInterceptorService } from './mocks/user-list-interceptor.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UserListInterceptorService } from './mocks/user-list-interceptor.servic
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     // { provide: ErrorHandler, useClass: ErrorMetadataService },
